@@ -14,6 +14,22 @@
       {{ partial "snipcart.html" . }}
     </section>
     <section>
+      <h2>{{ .Site.Params.Contacts_title }}</h2>
+      <div class="container">
+        <div class="reviews flex-grid">
+            {{partial "contact.html" . }}
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>{{ .Site.Params.Map_title }}</h2>
+      <div class="container">
+        <div class="reviews flex-grid">
+            {{partial "map.html" . }}
+        </div>
+      </div>
+    </section>
+    <section>
       <h2>{{ .Site.Params.Reviews_title }}</h2>
       <div class="container">
         <div class="reviews flex-grid">
