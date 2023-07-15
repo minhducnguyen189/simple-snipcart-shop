@@ -1,5 +1,5 @@
 <div class="product grid-item">
-  <img class="product__image" src="{{ .image }}" alt="" />
+  <img class="product__image" src="{{ .image | relURL }}" alt="" />
   <div class="card-content">
     <div class="product__titlebar">
       <h3 class="product__name">{{ .name }}</h3>
