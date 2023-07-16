@@ -112,7 +112,7 @@ header {
     .right-stuff div:first-child {
       margin-bottom: 1rem;
     }
-    $nav-bg-color: $medium-green;
+    $nav-bg-color: $light-green;
     $nav-text-color: $black; /* Update text color */
     $nav-icon-color: #999; /* Update icon color */
     $nav-logo-font-size: 24px;
@@ -146,6 +146,7 @@ header {
       &:hover {
         background-color: lighten($nav-bg-color, 10%); /* Make it lighter on hover */
         border-radius: 5px;
+        color: white;
       }
     }
     
