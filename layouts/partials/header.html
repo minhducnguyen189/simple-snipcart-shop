@@ -1,23 +1,28 @@
 <header>
   <div class="container">
-    <a href="{{ `/` | relURL }}"><img src="{{ `images/logo.png` | relURL }}" /></a>
-    <div class="right-stuff">
-      <!-- <div class="header__cart">
-        <a href="#" class="snipcart-checkout">
-          <div class="snipcart-summary">
-            <i class="fas fa-lg fa-shopping-bag"></i>&nbsp;<span
-              class="snipcart-items-count"
-            ></span>
-            item(s)
-          </div>
-        </a>
-      </div> -->
-      <!-- <div class="instagram">
-        <i class="fab fa-lg fa-instagram"></i>&nbsp;<a
-          href="https://instagram.com/{{ .Site.Params.Instagram }}"
-          >{{ .Site.Params.Instagram }}</a
-        >
-      </div> -->
-    </div>
+    <a href="{{ `/` | relURL }}#body"><img src="{{ `images/logo.png` | relURL }}" /></a>
+    <nav class="navbar">
+      <div class="navbar-items">
+        <a href="{{ `/` | relURL }}#body" class="nav-item">Home</a>
+        <a href="{{ `/` | relURL }}#section-product" class="nav-item">Menu</a>
+        <a href="{{ `/` | relURL }}#section-contacts" class="nav-item">Contacts</a>
+        <a href="{{ `/` | relURL }}#section-location" class="nav-item">Location</a>
+        <a href="{{ `/` | relURL }}#section-reviews" class="nav-item">Reviews</a>
+      </div>
+      <div class="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <script>
+      // Add JavaScript to toggle mobile navigation
+      const navbarToggle = document.querySelector('.navbar-toggle');
+      const navbarItems = document.querySelector('.navbar-items');
+  
+      navbarToggle.addEventListener('click', () => {
+        navbarItems.classList.toggle('show');
+      });
+    </script>
   </div>
 </header>

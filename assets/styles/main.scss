@@ -18,6 +18,12 @@ $collage-image-size: 300px;
 $backup-fonts: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
   Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
+/* Smooth scrolling animation */
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 body {
   color: $black;
   background: $white;
@@ -54,6 +60,7 @@ h2 {
 a {
   text-decoration: none;
   color: $dark-green;
+
   @include media('>=md') {
     &:hover {
       color: $light-green;
@@ -77,14 +84,17 @@ section {
   margin: auto;
   padding-left: 40px;
   padding-right: 40px;
+
   @include media('<=md') {
     padding-left: 30px;
     padding-right: 30px;
   }
+
   @include media('<sm') {
     padding-left: 20px;
     padding-right: 20px;
   }
+
   @include media('<xs') {
     padding-left: 10px;
     padding-right: 10px;
@@ -102,6 +112,80 @@ header {
     .right-stuff div:first-child {
       margin-bottom: 1rem;
     }
+    $nav-bg-color: $medium-green;
+    $nav-text-color: $black; /* Update text color */
+    $nav-icon-color: #999; /* Update icon color */
+    $nav-logo-font-size: 24px;
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      color: $nav-text-color; /* Use the updated text color */
+      // background-color: $nav-bg-color; /* Use the updated background color */
+    }
+    
+    .navbar-brand {
+      font-size: $nav-logo-font-size;
+      font-weight: bold;
+      color: $nav-text-color; /* Use the updated text color */
+    }
+    
+    .navbar-items {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-item {
+      color: $nav-text-color; /* Use the updated text color */
+      text-decoration: none;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    
+      &:hover {
+        background-color: lighten($nav-bg-color, 10%); /* Make it lighter on hover */
+        border-radius: 5px;
+      }
+    }
+    
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    
+      span {
+        width: 100%;
+        height: 2px;
+        background-color: $nav-text-color; /* Use the updated text color */
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-items {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 87px;
+        right: 10px;
+        background-color: lighten($nav-bg-color, 20%); /* Make it lighter */
+        width: 150px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+    
+      .navbar-items.show {
+        display: flex;
+      }
+    
+      .navbar-toggle {
+        display: flex;
+      }
+    }
+    
   }
 
   z-index: 1000;
@@ -112,8 +196,9 @@ header {
   box-shadow: 0px 1px 8px 0px $dark-green;
 
   img {
-    width: 125px;
+    width: 70px;
   }
+
   a {
     color: $black;
   }
@@ -122,6 +207,7 @@ header {
 footer {
   padding: 2rem 0;
   border-top: 5px solid $light-green;
+
   p {
     margin-top: 0;
     text-align: center;
@@ -134,6 +220,7 @@ a.btn {
   border: 4px solid $black;
   border-radius: 6px;
   transition: all 0.3s ease 0s;
+
   @include media('>=md') {
     &:hover {
       color: $medium-green;
@@ -163,18 +250,21 @@ a.btn {
     max-width: 100%;
     margin: auto;
   }
+
   &-overlay {
     position: absolute;
     left: 0;
     right: 0;
-    top: 141px;
+    top: 86px;
     color: $white;
     height: $collage-image-size * 2;
 
     background: rgba(0, 0, 0, 0.3);
+
     &-text {
       padding: 2rem;
     }
+
     h1,
     p {
       max-width: 1000px;
@@ -185,13 +275,16 @@ a.btn {
 
   @include media('<=sm') {
     column-count: 2;
+
     h1 {
       line-height: 1.15;
       font-size: 3rem;
     }
   }
+
   @include media('<=xs') {
     column-count: 1;
+
     h1 {
       font-size: 2.5rem;
     }
@@ -204,6 +297,7 @@ a.btn {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
     .btn {
       margin: 0.5rem;
     }
@@ -216,16 +310,20 @@ a.btn {
   justify-content: center;
   margin-bottom: 2rem;
   margin-top: 1rem;
+
   @include media('>sm') {
     margin-left: -1rem;
     margin-right: -1rem;
   }
+
   .grid-item {
     width: calc(33% - 2rem);
     margin: 1rem;
+
     @include media('<=lg') {
       width: calc(50% - 2rem);
     }
+
     @include media('<=sm') {
       width: 100%;
       margin-left: 0;
@@ -235,6 +333,7 @@ a.btn {
 }
 
 $product-br: 6px;
+
 .products {
   .product {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -246,16 +345,20 @@ $product-br: 6px;
       object-fit: cover;
       border-radius: $product-br $product-br 0 0;
     }
+
     .card-content {
       padding: 1rem;
     }
+
     h3,
     p {
       margin-bottom: 8px;
     }
+
     p {
       margin-top: 0;
     }
+
     &__titlebar {
       display: flex;
       justify-content: space-between;
@@ -267,19 +370,23 @@ $product-br: 6px;
   &-modal__container {
     top: 141px;
   }
+
   &-cart-header {
-    & > div {
+    &>div {
       display: none;
     }
   }
+
   @include media('>=md') {
     .snipcart-dropdown-custom-field--standard {
       width: 50%;
     }
   }
+
   @include media('<md') {
     .snipcart-item-line__header {
       height: 200px;
+
       figure {
         height: 200px;
       }
@@ -298,9 +405,11 @@ $product-br: 6px;
     position: relative;
     max-width: 450px;
     max-height: 450px;
+
     * {
       box-sizing: border-box;
     }
+
     img {
       object-fit: cover;
       opacity: 0.7;
@@ -308,6 +417,7 @@ $product-br: 6px;
       height: 400px;
       width: 100%;
     }
+
     figcaption {
       position: absolute;
       top: 0;
@@ -315,6 +425,7 @@ $product-br: 6px;
       left: 0;
       right: 0;
       padding: 80px 10% 15%;
+
       &:before {
         font-family: 'FontAwesome';
         content: '\201C';
@@ -327,12 +438,14 @@ $product-br: 6px;
         left: 50%;
       }
     }
+
     blockquote {
       padding: 0;
       margin: 0;
       font-style: italic;
       font-size: 1.2em;
     }
+
     h3 {
       text-transform: uppercase;
       font-size: 24px;
@@ -396,6 +509,3 @@ $breakpoint: 768px;
     margin: 5px 0;
   }
 }
-
-
-
