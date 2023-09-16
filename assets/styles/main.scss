@@ -79,6 +79,10 @@ section {
   margin-bottom: 2rem;
 }
 
+.section-container {
+  margin-top: 4rem;
+}
+
 .container {
   max-width: 1250px;
   margin: auto;
@@ -513,6 +517,7 @@ $breakpoint: 768px;
 }
 
 .drink, .food {
+  margin-top: 2rem;
   .container {
     width: $container-width;
     max-width: 100%;

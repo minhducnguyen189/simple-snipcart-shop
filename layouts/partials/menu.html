@@ -1,0 +1,134 @@
+{{ if eq .categories "Drinks" }}
+<div class="drink">
+  <h2>Drinks</h2>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Drinks "kind" "drinks" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{ else if eq .categories "Foods" }}
+<div class="food">
+  <h2>Foods</h2>
+  <div class="container">
+    <h3>Starter</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Foods "kind" "starter" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <h3>Entress</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Foods "kind" "entress" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <h3>Dessert</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Foods "kind" "dessert" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{ else }}
+<div class="drink">
+  <h2>Drinks</h2>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Drinks "kind" "drinks" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="food">
+  <h2>Foods</h2>
+  <div class="container">
+    <h3>Starter</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Foods "kind" "starter" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <h3>Entress</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Foods "kind" "entress" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <h3>Dessert</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Foods "kind" "dessert" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{ end }}

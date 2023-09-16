@@ -1,7 +1,7 @@
 {{ define "main" }}
   <main>
     {{ partial "collage.html" . }}
-    <section id="section-drink">
+    <!-- <section id="section-drink">
       <h2>{{ .Site.Params.Drink_title }}</h2>
       <div class="container">
         <div class="drink flex-grid">
@@ -18,6 +18,30 @@
         </div>
       </div>
       {{ partial "snipcart.html" . }}
+    </section> -->
+    <section id="section-product">
+      <h2>{{ .Site.Params.Products_title }}</h2>
+      {{ partial "menu-selector" . }}
+      <div class="section-container">
+        <div class="products flex-grid">
+          {{ range .Pages.ByDate }}
+            {{ if eq .Params.draft false }}
+              {{ partial "menu.html" (dict "context" . "categories" .Params.categories) }}
+            {{ end }}  
+          {{ end }}
+        </div>
+      </div>
+      {{ partial "snipcart.html" . }}
+    </section>
+    <section id="section-reviews">
+      <h2>{{ .Site.Params.Reviews_title }}</h2>
+      <div class="container">
+        <div class="reviews flex-grid">
+          {{ range .Site.Data.reviews }}
+            {{partial "review.html" . }}
+          {{ end }}
+        </div>
+      </div>
     </section>
     <!-- <section id="section-product">
       <h2>{{ .Site.Params.Products_title }}</h2>
@@ -33,7 +57,7 @@
     </section> -->
     <section id="section-contacts">
       <h2>{{ .Site.Params.Contacts_title }}</h2>
-      <div class="container">
+      <div class="section-container">
         <div class="reviews flex-grid">
             {{partial "contact.html" . }}
         </div>
@@ -41,21 +65,11 @@
     </section>
     <section id="section-location">
       <h2>{{ .Site.Params.Map_title }}</h2>
-      <div class="container">
+      <div class="section-container">
         <div class="reviews flex-grid">
             {{partial "map.html" . }}
         </div>
       </div>
     </section>
-    <!-- <section id="section-reviews">
-      <h2>{{ .Site.Params.Reviews_title }}</h2>
-      <div class="container">
-        <div class="reviews flex-grid">
-          {{ range .Site.Data.reviews }}
-            {{partial "review.html" . }}
-          {{ end }}
-        </div>
-      </div>
-    </section> -->
   </main>
 {{ end }}
