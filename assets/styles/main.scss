@@ -1,10 +1,10 @@
-@import 'include-media';
+@import "include-media";
 
 $breakpoints: (
   xs: 450px,
   sm: 768px,
   md: 1024px,
-  lg: 1300px
+  lg: 1300px,
 );
 
 $white: #f9f3f1ff;
@@ -15,8 +15,8 @@ $dark-green: #04724dff;
 
 $collage-image-size: 300px;
 
-$backup-fonts: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-  Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+$backup-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
 /* Smooth scrolling animation */
 html,
@@ -27,7 +27,7 @@ body {
 body {
   color: $black;
   background: $white;
-  font-family: 'Montserrat', $backup-fonts;
+  font-family: "Montserrat", $backup-fonts;
   font-weight: 500;
 }
 
@@ -61,7 +61,7 @@ a {
   text-decoration: none;
   color: $dark-green;
 
-  @include media('>=md') {
+  @include media(">=md") {
     &:hover {
       color: $light-green;
       cursor: pointer;
@@ -69,7 +69,7 @@ a {
   }
 }
 
-@include media('>=md') {
+@include media(">=md") {
   .instagram:hover i:before {
     color: $light-green;
   }
@@ -85,17 +85,17 @@ section {
   padding-left: 40px;
   padding-right: 40px;
 
-  @include media('<=md') {
+  @include media("<=md") {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  @include media('<sm') {
+  @include media("<sm") {
     padding-left: 20px;
     padding-right: 20px;
   }
 
-  @include media('<xs') {
+  @include media("<xs") {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -116,7 +116,7 @@ header {
     $nav-text-color: $black; /* Update text color */
     $nav-icon-color: #999; /* Update icon color */
     $nav-logo-font-size: 24px;
-    
+
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -125,31 +125,34 @@ header {
       color: $nav-text-color; /* Use the updated text color */
       // background-color: $nav-bg-color; /* Use the updated background color */
     }
-    
+
     .navbar-brand {
       font-size: $nav-logo-font-size;
       font-weight: bold;
       color: $nav-text-color; /* Use the updated text color */
     }
-    
+
     .navbar-items {
       display: flex;
       gap: 20px;
     }
-    
+
     .nav-item {
       color: $nav-text-color; /* Use the updated text color */
       text-decoration: none;
       padding: 10px;
       transition: background-color 0.3s ease;
-    
+
       &:hover {
-        background-color: lighten($nav-bg-color, 10%); /* Make it lighter on hover */
+        background-color: lighten(
+          $nav-bg-color,
+          10%
+        ); /* Make it lighter on hover */
         border-radius: 5px;
         color: white;
       }
     }
-    
+
     .navbar-toggle {
       display: none;
       flex-direction: column;
@@ -157,14 +160,14 @@ header {
       width: 30px;
       height: 20px;
       cursor: pointer;
-    
+
       span {
         width: 100%;
         height: 2px;
         background-color: $nav-text-color; /* Use the updated text color */
       }
     }
-    
+
     @media (max-width: 768px) {
       .navbar-items {
         display: none;
@@ -177,16 +180,15 @@ header {
         border-radius: 5px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
       }
-    
+
       .navbar-items.show {
         display: flex;
       }
-    
+
       .navbar-toggle {
         display: flex;
       }
     }
-    
   }
 
   z-index: 1000;
@@ -222,7 +224,7 @@ a.btn {
   border-radius: 6px;
   transition: all 0.3s ease 0s;
 
-  @include media('>=md') {
+  @include media(">=md") {
     &:hover {
       color: $medium-green;
       border-radius: 50px;
@@ -274,7 +276,7 @@ a.btn {
     }
   }
 
-  @include media('<=sm') {
+  @include media("<=sm") {
     column-count: 2;
 
     h1 {
@@ -283,7 +285,7 @@ a.btn {
     }
   }
 
-  @include media('<=xs') {
+  @include media("<=xs") {
     column-count: 1;
 
     h1 {
@@ -312,7 +314,7 @@ a.btn {
   margin-bottom: 2rem;
   margin-top: 1rem;
 
-  @include media('>sm') {
+  @include media(">sm") {
     margin-left: -1rem;
     margin-right: -1rem;
   }
@@ -321,11 +323,11 @@ a.btn {
     width: calc(33% - 2rem);
     margin: 1rem;
 
-    @include media('<=lg') {
+    @include media("<=lg") {
       width: calc(50% - 2rem);
     }
 
-    @include media('<=sm') {
+    @include media("<=sm") {
       width: 100%;
       margin-left: 0;
       margin-right: 0;
@@ -373,18 +375,18 @@ $product-br: 6px;
   }
 
   &-cart-header {
-    &>div {
+    & > div {
       display: none;
     }
   }
 
-  @include media('>=md') {
+  @include media(">=md") {
     .snipcart-dropdown-custom-field--standard {
       width: 50%;
     }
   }
 
-  @include media('<md') {
+  @include media("<md") {
     .snipcart-item-line__header {
       height: 200px;
 
@@ -428,8 +430,8 @@ $product-br: 6px;
       padding: 80px 10% 15%;
 
       &:before {
-        font-family: 'FontAwesome';
-        content: '\201C';
+        font-family: "FontAwesome";
+        content: "\201C";
         position: absolute;
         font-size: 170px;
         opacity: 0.75;
@@ -466,7 +468,6 @@ $border-radius: 10px;
 $breakpoint: 768px;
 
 .contact {
-  font-family: Arial, sans-serif;
   color: $primary-color;
 
   .container {
@@ -508,5 +509,98 @@ $breakpoint: 768px;
 
   p {
     margin: 5px 0;
+  }
+}
+
+.drink, .food {
+  .container {
+    width: $container-width;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+
+    table {
+      width: $container-width;
+      border-collapse: separate;
+      border: solid $border-color 1px;
+      border-radius: 10px;
+      overflow-x: auto; /* Add horizontal scroll for small screens */
+
+      th,
+      td {
+        text-align: left;
+        border-left: 1px solid $border-color;
+        border-top: 1px solid $border-color;
+        padding: 10px;
+      }
+
+      th {
+        background-color: $light-green;
+        color: white;
+      }
+
+      td {
+        ul {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      /* Rest of your table styling */
+      td:first-child,
+      .bordered th:first-child {
+        border-left: none;
+      }
+
+      th:first-child {
+        -moz-border-radius: 6px 0 0 0;
+        -webkit-border-radius: 6px 0 0 0;
+        border-radius: 6px 0 0 0;
+      }
+      th:last-child {
+        -moz-border-radius: 0 6px 0 0;
+        -webkit-border-radius: 0 6px 0 0;
+        border-radius: 0 6px 0 0;
+      }
+
+      th:only-child {
+        -moz-border-radius: 6px 6px 0 0;
+        -webkit-border-radius: 6px 6px 0 0;
+        border-radius: 6px 6px 0 0;
+      }
+
+      tr:last-child td:first-child {
+        -moz-border-radius: 0 0 0 6px;
+        -webkit-border-radius: 0 0 0 6px;
+        border-radius: 0 0 0 6px;
+      }
+      tr:last-child td:last-child {
+        -moz-border-radius: 0 0 6px 0;
+        -webkit-border-radius: 0 0 6px 0;
+        border-radius: 0 0 6px 0;
+      }
+
+      tr:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+  /* Media query for iPhone 8 (375px width in portrait mode) */
+  @media (max-width: $breakpoint) {
+    .container {
+      width: auto;
+      padding: 10px;
+
+      table {
+        width: 100%;
+      }
+      th,
+      td {
+        padding: 5px;
+      }
+    }
   }
 }

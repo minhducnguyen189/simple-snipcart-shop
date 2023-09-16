@@ -1,7 +1,25 @@
 {{ define "main" }}
   <main>
     {{ partial "collage.html" . }}
-    <section id="section-product">
+    <section id="section-drink">
+      <h2>{{ .Site.Params.Drink_title }}</h2>
+      <div class="container">
+        <div class="drink flex-grid">
+            {{ partial "drink.html" . }}
+        </div>
+      </div>
+      {{ partial "snipcart.html" . }}
+    </section>
+    <section id="section-food">
+      <h2>{{ .Site.Params.Food_title }}</h2>
+      <div class="container">
+        <div class="food flex-grid">
+            {{ partial "food.html" . }}
+        </div>
+      </div>
+      {{ partial "snipcart.html" . }}
+    </section>
+    <!-- <section id="section-product">
       <h2>{{ .Site.Params.Products_title }}</h2>
       {{ partial "category-selector" . }}
       <div class="container">
@@ -12,7 +30,7 @@
         </div>
       </div>
       {{ partial "snipcart.html" . }}
-    </section>
+    </section> -->
     <section id="section-contacts">
       <h2>{{ .Site.Params.Contacts_title }}</h2>
       <div class="container">
@@ -29,7 +47,7 @@
         </div>
       </div>
     </section>
-    <section id="section-reviews">
+    <!-- <section id="section-reviews">
       <h2>{{ .Site.Params.Reviews_title }}</h2>
       <div class="container">
         <div class="reviews flex-grid">
@@ -38,6 +56,6 @@
           {{ end }}
         </div>
       </div>
-    </section>
+    </section> -->
   </main>
 {{ end }}

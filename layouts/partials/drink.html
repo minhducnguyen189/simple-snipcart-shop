@@ -1,0 +1,17 @@
+<div class="drink">
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .Site.Params.Drinks "kind" "drinks" }}
+          {{ partial "table-row.html" . }}
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="food">
+    <div class="container">
+      <h3>Starter</h3>  
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range where .Site.Params.Foods "kind" "starter" }}
+            {{ partial "table-row.html" . }}
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+        <h3>Entress</h3>  
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range where .Site.Params.Foods "kind" "entress" }}
+              {{ partial "table-row.html" . }}
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    <div class="container">
+        <h3>Dessert</h3>  
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range where .Site.Params.Foods "kind" "dessert" }}
+              {{ partial "table-row.html" . }}
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+  </div>
+  
