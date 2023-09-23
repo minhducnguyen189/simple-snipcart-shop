@@ -20,10 +20,19 @@
       // Add JavaScript to toggle mobile navigation
       const navbarToggle = document.querySelector('.navbar-toggle');
       const navbarItems = document.querySelector('.navbar-items');
-  
-      navbarToggle.addEventListener('click', () => {
+    
+      navbarToggle.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the click event from propagating to the document body
         navbarItems.classList.toggle('show');
       });
+    
+      // Add event listener to close the menu when clicking outside of it
+      document.body.addEventListener('click', () => {
+        if (navbarItems.classList.contains('show')) {
+          navbarItems.classList.remove('show');
+        }
+      });
     </script>
+    
   </div>
 </header>
