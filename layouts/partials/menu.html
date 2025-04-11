@@ -6,7 +6,10 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          {{ $startersWithPrice := where (where .context.Site.Params.Drinks "kind" "drinks") "showPrice" true }}
+          {{ if gt (len $startersWithPrice) 0 }}
+            <th>Price</th>
+          {{ end }}
         </tr>
       </thead>
       <tbody>
@@ -25,7 +28,10 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          {{ $startersWithPrice := where (where .context.Site.Params.Foods "kind" "starter") "showPrice" true }}
+          {{ if gt (len $startersWithPrice) 0 }}
+            <th>Price</th>
+          {{ end }}
         </tr>
       </thead>
       <tbody>
@@ -35,16 +41,51 @@
     </table>
   </div>
   <div class="container">
-    <h3>Entress</h3>
+    <div style="text-align: center;">
+      <h3>Entress</h3>
+      {{ range where .context.Site.Params.Foods "kind" "entress" }}
+      <h3>
+        {{.description}}: {{.price}}
+      </h3>
+      {{ end }}
+    </div>
     <table>
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          {{ $startersWithPrice := where (where .context.Site.Params.Foods "kind" "entress") "showPrice" true }}
+          {{ if gt (len $startersWithPrice) 0 }}
+            <th>Price</th>
+          {{ end }}
         </tr>
       </thead>
       <tbody>
         {{ range where .context.Site.Params.Foods "kind" "entress" }} {{ partial
+        "table-row.html" . }} {{ end }}
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <div style="text-align: center;">
+      <h3>Curry</h3>
+      {{ range where .context.Site.Params.Foods "kind" "curry" }}
+      <h3>
+        {{.description}}: {{.price}}
+      </h3>
+      {{ end }}
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          {{ $startersWithPrice := where (where .context.Site.Params.Foods "kind" "curry") "showPrice" true }}
+          {{ if gt (len $startersWithPrice) 0 }}
+            <th>Price</th>
+          {{ end }}
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where .context.Site.Params.Foods "kind" "curry" }} {{ partial
         "table-row.html" . }} {{ end }}
       </tbody>
     </table>
@@ -55,7 +96,9 @@
       <thead>
         <tr>
           <th>Name</th>
+          {{if eq .showPrice true}}
           <th>Price</th>
+          {{end}}
         </tr>
       </thead>
       <tbody>
@@ -73,7 +116,10 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          {{ $startersWithPrice := where (where .context.Site.Params.Drinks "kind" "drinks") "showPrice" true }}
+          {{ if gt (len $startersWithPrice) 0 }}
+            <th>Price</th>
+          {{ end }}
         </tr>
       </thead>
       <tbody>
@@ -91,7 +137,10 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          {{ $startersWithPrice := where (where .context.Site.Params.Foods "kind" "starter") "showPrice" true }}
+          {{ if gt (len $startersWithPrice) 0 }}
+            <th>Price</th>
+          {{ end }}
         </tr>
       </thead>
       <tbody>
@@ -106,7 +155,10 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          {{ $startersWithPrice := where (where .context.Site.Params.Foods "kind" "entress") "showPrice" true }}
+          {{ if gt (len $startersWithPrice) 0 }}
+            <th>Price</th>
+          {{ end }}
         </tr>
       </thead>
       <tbody>
@@ -121,7 +173,10 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          {{ $startersWithPrice := where (where .context.Site.Params.Foods "kind" "dessert") "showPrice" true }}
+          {{ if gt (len $startersWithPrice) 0 }}
+            <th>Price</th>
+          {{ end }}
         </tr>
       </thead>
       <tbody>
